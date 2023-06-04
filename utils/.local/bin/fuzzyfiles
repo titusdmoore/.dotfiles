@@ -16,7 +16,11 @@ fi
 
 session_name=$(basename $session | tr "." "_" )
 
-tmux new-session -d -s $session_name -c $session
-tmux detach-client 
-tmux attach-session -t $session_name
 
+if tmux list-sessions >/dev/null 2>&1; then 
+	tmux new-session -d -s $session_name -c $session
+	tmux switch-client -t $session_name
+else
+	tmux new-session -s $session_name -c $session
+	tmux attach-session -t $session_name
+fi
