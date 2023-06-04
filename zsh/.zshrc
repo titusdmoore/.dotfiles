@@ -56,6 +56,8 @@ export PNPM_HOME="/Users/titusmoore/Library/pnpm"
 export PATH="$PNPM_HOME:$PATH"
 # pnpm end
 
+bindkey -s ^F "fuzzyfiles^M"
+
 # Testing cd function
 i() {
   if [ -n "$1" ]; then

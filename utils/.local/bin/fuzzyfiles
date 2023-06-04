@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+path="/Volumes/External"
+
+# Exit if no external drive is not mounted
+if [ ! -d $path ]; then
+	echo "External drive not mounted"
+	exit 1
+fi
+
+session=$(find $path/dev/personal $path/dev/work -mindepth 1 -maxdepth 1 -type d | fzf)
+
+if [ ! -d $session ]; then
+	echo "Invalid Directory, cannot create session"
+	exit 1
+fi
+
+session_name=$(basename $session | tr "." "_" )
+
+tmux new-session -d -s $session_name -c $session
+tmux detach-client 
+tmux attach-session -t $session_name
+
