@@ -46,6 +46,7 @@ alias cl='clear'
 # alias wp='php /Applications/MAMP/bin/php/${PHP_VERSION}/bin/wp-cli.phar'
 
 export PATH=$PATH:/Users/titusmoore/.local/bin
+export PATH=$PATH:$HOME/.tmux/plugins/tmuxifier/bin
 export PATH=$PATH:~/.composer/vendor/bin
 
 # Add Flutter to path
@@ -56,7 +57,7 @@ export PNPM_HOME="/Users/titusmoore/Library/pnpm"
 export PATH="$PNPM_HOME:$PATH"
 # pnpm end
 
-bindkey -s ^F "fuzzyfiles^M"
+bindkey -s "^F" "fuzzyfiles^M"
 
 # Testing cd function
 i() {
@@ -91,4 +92,6 @@ bindkey ^S history-incremental-search-forward
 alias tm="/Users/titusmoore/.local/bin/time-management"
 
 eval "$(starship init zsh)"
+eval "$(tmuxifier init -)"
 eval "$(~/.local/bin/rtx activate zsh)"
+export PATH="/usr/local/opt/bison/bin:$PATH"

@@ -20,7 +20,14 @@ session_name=$(basename $session | tr "." "_" )
 if tmux list-sessions >/dev/null 2>&1; then 
 	tmux new-session -d -s $session_name -c $session
 	tmux switch-client -t $session_name
+	if test -f $session/.fuzzy.window.sh; then
+		tmuxifier load-window $session/.fuzzy.window.sh
+	fi
 else
 	tmux new-session -s $session_name -c $session
 	tmux attach-session -t $session_name
+	if test -f $session/.fuzzy.window.sh; then
+		tmuxifier load-window $session/.fuzzy.window.sh
+	fi
 fi
+
