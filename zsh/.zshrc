@@ -57,7 +57,9 @@ export PNPM_HOME="/Users/titusmoore/Library/pnpm"
 export PATH="$PNPM_HOME:$PATH"
 # pnpm end
 
-bindkey -s "^F" "fuzzyfiles^M"
+function run_fuzzyfiles() { fuzzyfiles; zle reset-prompt; zle redisplay } 
+zle -N run_fuzzyfiles
+bindkey '^F' run_fuzzyfiles 
 
 # Testing cd function
 i() {
