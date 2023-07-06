@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+session=$(tmux ls | sed "s/\:.*//g" | sed "s/^-c//g" | fzf)
+
+tmux switch-client -t $session
