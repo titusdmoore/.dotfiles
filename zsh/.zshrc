@@ -94,9 +94,6 @@ bindkey ^S history-incremental-search-forward
 alias tm="/Users/titusmoore/.local/bin/time-management"
 
 eval "$(starship init zsh)"
-eval "$(tmuxifier init -)"
-RTX_PATH=$(which rtx)
-eval "$($RTX_PATH activate zsh)"
-export PATH="/usr/local/opt/bison/bin:$PATH"
-source "$HOME/.nix-profile/etc/profile.d/hm-session-vars.sh"
-
+# eval "$(tmuxifier init -)"
+# RTX_PATH=$(which rtx)
+# eval "$($RTX_PATH activate zsh)"
