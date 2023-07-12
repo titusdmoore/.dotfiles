@@ -3,3 +3,4 @@ python = "3.11.3"
 
 [settings]
 experimental = true
+always_keep_install = true

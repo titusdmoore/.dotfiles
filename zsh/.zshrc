@@ -95,5 +95,8 @@ alias tm="/Users/titusmoore/.local/bin/time-management"
 
 eval "$(starship init zsh)"
 eval "$(tmuxifier init -)"
-eval "$(~/.local/bin/rtx activate zsh)"
+RTX_PATH=$(which rtx)
+eval "$($RTX_PATH activate zsh)"
 export PATH="/usr/local/opt/bison/bin:$PATH"
+source "$HOME/.nix-profile/etc/profile.d/hm-session-vars.sh"
+
