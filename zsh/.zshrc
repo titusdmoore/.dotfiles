@@ -95,5 +95,5 @@ alias tm="/Users/titusmoore/.local/bin/time-management"
 
 eval "$(starship init zsh)"
 # eval "$(tmuxifier init -)"
-# RTX_PATH=$(which rtx)
-# eval "$($RTX_PATH activate zsh)"
+RTX_PATH=$(which rtx)
+eval "$($RTX_PATH activate zsh)"
