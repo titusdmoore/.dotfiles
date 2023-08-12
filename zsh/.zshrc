@@ -39,13 +39,14 @@ alias gp='git pull'
 alias edge='cd /Volumes/Data'
 alias rms='~/.remove-safe/remove-safe'
 alias cl='clear'
+alias openssl='openssl-1.1'
 
 # COMMENTED OUT BECAUSE I NO LONGER USE MAMP
 # PHP_VERSION=$(ls /Applications/MAMP/bin/php/ | sort -n | head -6 | tail -1)
 # export PATH=/Applications/MAMP/bin/php/${PHP_VERSION}/bin:$PATH
 # alias wp='php /Applications/MAMP/bin/php/${PHP_VERSION}/bin/wp-cli.phar'
 
-export PATH=$PATH:/Users/titusmoore/.local/bin
+export PATH=$PATH:$HOME/.local/bin
 export PATH=$PATH:$HOME/.tmux/plugins/tmuxifier/bin
 export PATH=$PATH:~/.composer/vendor/bin
 
@@ -97,3 +98,10 @@ eval "$(starship init zsh)"
 # eval "$(tmuxifier init -)"
 RTX_PATH=$(which rtx)
 eval "$($RTX_PATH activate zsh)"
+
+export PHPENV_ROOT="/home/tmoore/.phpenv"
+if [ -d "${PHPENV_ROOT}" ]; then
+  export PATH="${PHPENV_ROOT}/bin:${PATH}"
+  eval "$(phpenv init -)"
+fi
+export EDITOR=nvim
