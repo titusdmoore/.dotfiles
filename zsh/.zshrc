@@ -105,3 +105,7 @@ if [ -d "${PHPENV_ROOT}" ]; then
   eval "$(phpenv init -)"
 fi
 export EDITOR=nvim
+
+if [ -f $HOME/.config/.osrc ]; then
+  source $HOME/.config/.osrc
+fi
