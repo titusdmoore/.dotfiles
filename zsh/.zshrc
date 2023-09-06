@@ -97,3 +97,5 @@ eval "$(starship init zsh)"
 # eval "$(tmuxifier init -)"
 RTX_PATH=$(which rtx)
 eval "$($RTX_PATH activate zsh)"
+
+source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
