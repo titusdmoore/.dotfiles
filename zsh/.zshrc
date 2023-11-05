@@ -99,6 +99,7 @@ eval "$(starship init zsh)"
 RTX_PATH=$(which rtx)
 eval "$($RTX_PATH activate zsh)"
 
+source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 export PHPENV_ROOT="/home/tmoore/.phpenv"
 if [ -d "${PHPENV_ROOT}" ]; then
   export PATH="${PHPENV_ROOT}/bin:${PATH}"
