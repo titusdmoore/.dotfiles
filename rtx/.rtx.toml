@@ -1,3 +1,4 @@
 [tools]
 node = "lts"
 php = "7.4"
+java = "latest"
