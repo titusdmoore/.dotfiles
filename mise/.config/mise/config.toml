@@ -1,5 +1,7 @@
 [tools]
-python = "3.11.3"
+python = "latest"
+node = "latest"
+php = "8"
 java = "latest"
 
 [settings]
