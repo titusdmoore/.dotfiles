@@ -48,6 +48,7 @@ alias cl='clear'
 export PATH=$PATH:/Users/titusmoore/.local/bin
 export PATH=$PATH:$HOME/.tmux/plugins/tmuxifier/bin
 export PATH=$PATH:~/.composer/vendor/bin
+export PATH=$PATH:$HOME/.local/share/zig
 
 # Add Flutter to path
 export PATH="$PATH:/Users/titusmoore/.flutter/bin"
@@ -97,3 +98,12 @@ eval "$(starship init zsh)"
 # eval "$(tmuxifier init -)"
 RTX_PATH=$(which rtx)
 eval "$($RTX_PATH activate zsh)"
+
+# bun completions
+[ -s "/Users/titusmoore/.bun/_bun" ] && source "/Users/titusmoore/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+
+export PATH=$PATH:$GOPATH/bin
