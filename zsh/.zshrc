@@ -2,32 +2,22 @@
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
-
 # Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
+if [[ -n $SSH_CONNECTION ]]; then
+  export EDITOR='vim'
+else
+  export EDITOR='mvim'
+fi
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
 export ANDROID_HOME=$HOME/Library/Android/sdk
 export PATH=$PATH:$ANDROID_HOME/emulator
 export PATH=$PATH:$ANDROID_HOME/tools
 export PATH=$PATH:$ANDROID_HOME/tools/bin
 export PATH=$PATH:$ANDROID_HOME/platform-tools
+export PATH=$PATH:$HOME/.cargo/bin
 export JAVA_HOME=`/usr/libexec/java_home -v 20`
 alias l='ls -ltr'
 alias ll='ls -al'
@@ -39,13 +29,15 @@ alias gp='git pull'
 alias edge='cd /Volumes/Data'
 alias rms='~/.remove-safe/remove-safe'
 alias cl='clear'
+# Move to OS
+# alias openssl='openssl-1.1'
 
 # COMMENTED OUT BECAUSE I NO LONGER USE MAMP
 # PHP_VERSION=$(ls /Applications/MAMP/bin/php/ | sort -n | head -6 | tail -1)
 # export PATH=/Applications/MAMP/bin/php/${PHP_VERSION}/bin:$PATH
 # alias wp='php /Applications/MAMP/bin/php/${PHP_VERSION}/bin/wp-cli.phar'
 
-export PATH=$PATH:/Users/titusmoore/.local/bin
+export PATH=$PATH:$HOME/.local/bin
 export PATH=$PATH:$HOME/.tmux/plugins/tmuxifier/bin
 export PATH=$PATH:~/.composer/vendor/bin
 export PATH=$PATH:$HOME/.local/share/zig
@@ -96,8 +88,19 @@ alias tm="/Users/titusmoore/.local/bin/time-management"
 
 eval "$(starship init zsh)"
 # eval "$(tmuxifier init -)"
-RTX_PATH=$(which rtx)
-eval "$($RTX_PATH activate zsh)"
+MISE_PATH=$(which mise)
+eval "$($MISE_PATH activate zsh)"
+
+export PHPENV_ROOT="/home/tmoore/.phpenv"
+if [ -d "${PHPENV_ROOT}" ]; then
+  export PATH="${PHPENV_ROOT}/bin:${PATH}"
+  eval "$(phpenv init -)"
+fi
+export EDITOR=nvim
+
+if [ -f $HOME/.config/.osrc ]; then
+  source $HOME/.config/.osrc
+fi
 
 # bun completions
 [ -s "/Users/titusmoore/.bun/_bun" ] && source "/Users/titusmoore/.bun/_bun"

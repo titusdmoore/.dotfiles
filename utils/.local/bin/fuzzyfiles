@@ -1,9 +1,14 @@
 #!/usr/bin/env bash
-path="/Volumes/External"
+
+if [ -v FUZZY_PATH ]; then
+	path=$FUZZY_PATH
+else
+	path="/Volumes/External"
+fi
 
 # Exit if no external drive is not mounted
 if [ ! -d $path ]; then
-	echo "External drive not mounted"
+	echo "Path not found: $path"
 	exit 1
 fi
 
